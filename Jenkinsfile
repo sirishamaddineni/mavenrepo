@@ -24,6 +24,13 @@ pipeline {
 		       }
 		    }
 		}
+		 stage ( ' Tagging ' ){                	  
+ 			steps {
+			       bat "git tag 'v1.0.'"
+                               bat "git config user.email 'sirishamaddineni25@gmail.com'"
+                               bat "git config user.name 'sirishamaddineni'"	
+			}
+		}
      stage( 'IQ_Scan' ){
 		     steps{
 			nexusPolicyEvaluation failBuildOnNetworkError: false, 
