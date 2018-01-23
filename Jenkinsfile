@@ -36,14 +36,14 @@ pipeline {
      		}
 		 stage( "Deploy" ){
 		      steps{
-				nexusArtifactUploader artifacts: [[artifactId: 'gameoflife-core', classifier: '', file: 'C:/Program Files (x86)/Jenkins/workspace/carreerit/target/studentapp-2.5-SNAPSHOT.war', type: 'war']],
+				nexusArtifactUploader artifacts: [[artifactId: 'studentapp-2.5-SNAPSHOT', classifier: '', file: 'C:/Program Files (x86)/Jenkins/workspace/carreerit/target/studentapp-2.5-SNAPSHOT.war', type: 'war']],
 				credentialsId: '5aed14d0-99ce-4bd4-bbad-b6e3014c4e28', 
 				groupId: 'maven-public', 
 				nexusUrl: 'localhost:9091', 
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
-				repository: 'Repo1', 
-				version: '4.0'
+				repository: 'CareerMaven', 
+				version: '1.0'
 	}
      }
      
