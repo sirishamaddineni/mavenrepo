@@ -8,28 +8,28 @@ pipeline {
 		 stage ( 'clone' ){
 		    steps{
           git "https://github.com/sirishamaddineni/mavenrepo"
-          }
+          } // Checkout Source Code from GIT
 		}
 		stage ( 'complie' ){
 		    steps{
 		       withMaven( maven : 'Maven 3.5.2' ){
 		       bat 'mvn clean compile'
-		    }
+		    } // Compiling the source code
 		   }
 		}
 		stage ('testing' ){
 		    steps{
 		        withMaven( maven : 'Maven 3.5.2' ){
 		        bat 'mvn test'
-		       }
+		       } // Testing the source code
 		    }
 		}
 		 stage ( ' Tagging ' ){                	  
  			steps {
-			       bat "git tag 'v1.0.'"
+			       bat "git tag 'v1.1.'"
                                bat "git config user.email 'sirishamaddineni25@gmail.com'"
                                bat "git config user.name 'sirishamaddineni'"	
-			}
+			}// Creating Tags 
 		}
      stage( 'IQ_Scan' ){
 		     steps{
@@ -39,7 +39,7 @@ pipeline {
 				iqStage: 'release', 
 				jobCredentialsId: 'NexusIQCred'
 			     
-     			}
+     			} // Scan the Artifacts
      		}
 		 stage( "Deploy" ){
 		      steps{
@@ -51,7 +51,7 @@ pipeline {
 				protocol: 'http', 
 				repository: 'Repo1', 
 				version: '5.0'
-	}
+	} // Deploying the Artifacts
      }
      
    }
