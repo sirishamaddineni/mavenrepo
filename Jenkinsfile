@@ -49,8 +49,8 @@ pipeline {
 				nexusUrl: 'localhost:9091', 
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
-				repository: 'CareerMaven', 
-				version: '1.0'
+				repository: 'Repo1', 
+				version: '5.0'
 	}
      }
      
